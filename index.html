@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPTS — Rated Pets</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #202432;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      font-size: 12px;
+      display: block;
+      font-weight: 500;
+      letter-spacing: 2px;
+      opacity: 0.6;
+    }
+
+    .menu {
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 45px 22px 35px;
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff, #eef1ff);
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #626979;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .search {
+      background: white;
+      border-radius: 14px;
+      padding: 15px 18px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      text-align: left;
+      color: #8a90a0;
+    }
+
+    .section {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      font-size: 22px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .pet-icon {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .pet-name {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .value {
+      font-size: 14px;
+      color: #687080;
+    }
+
+    .trend {
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .up {
+      color: #16a36a;
+    }
+
+    .stable {
+      color: #d28a00;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .feature {
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 7px;
+    }
+
+    .feature p {
+      color: #737a8a;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 25px;
+      padding: 30px 20px;
+      text-align: center;
+      background: #202432;
+      color: white;
+    }
+
+    footer p {
+      opacity: 0.7;
+      font-size: 13px;
+      margin-top: 7px;
+    }
+
+    @media (min-width: 700px) {
+      .cards,
+      .features {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    RPTS
+    <span>RATED PETS</span>
+  </div>
+
+  <div class="menu">☰</div>
+</header>
+
+<section class="hero">
+  <h1>Rated Pets 🐾</h1>
+
+  <p>
+    Valores, intercambios y comunidad.<br>
+    Una nueva forma de tradear.
+  </p>
+
+  <div class="search">
+    🔎 Buscar una mascota...
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="section-title">
+    <h2>🔥 Mascotas en tendencia</h2>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <div class="pet-icon">🐉</div>
+      <div class="pet-name">Bat Dragon</div>
+      <div class="value">Valor: 1000</div>
+      <div class="trend up">↗ Tendencia alta</div>
+    </div>
+
+    <div class="card">
+      <div class="pet-icon">🦍</div>
+      <div class="pet-name">Gorilla</div>
+      <div class="value">Valor: 25</div>
+      <div class="trend up">↗ Subiendo</div>
+    </div>
+
+    <div class="card">
+      <div class="pet-icon">🐰</div>
+      <div class="pet-name">Cabbit</div>
+      <div class="value">Valor: 80</div>
+      <div class="trend stable">→ Estable</div>
+    </div>
+
+    <div class="card">
+      <div class="pet-icon">🦩</div>
+      <div class="pet-name">Flamingo</div>
+      <div class="value">Valor: 180</div>
+      <div class="trend up">↗ En demanda</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="section-title">
+    <h2>✨ RPTS</h2>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">💎</div>
+      <h3>Valores</h3>
+      <p>
+        Consulta valores y tendencias de las mascotas.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">⚖️</div>
+      <h3>Calculadora</h3>
+      <p>
+        Compara dos intercambios y descubre si parecen Win, Fair o Lose.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📈</div>
+      <h3>Tendencias</h3>
+      <p>
+        Observa qué mascotas están subiendo, bajando o manteniéndose estables.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">👥</div>
+      <h3>Comunidad</h3>
+      <p>
+        Comparte trades, ofertas, capturas y descubre qué está pasando en el mercado.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <strong>RPTS — Rated Pets 🐾</strong>
+  <p>Una comunidad creada para intercambiar de manera más transparente.</p>
+</footer>
+
+</body>
+  </html>
