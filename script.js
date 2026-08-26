@@ -1,16 +1,42 @@
 // RPTS — Rated Pets
 // Funciones principales de la plataforma
 
-const batDragon = pets.find(pet => pet.name === "Bat Dragon");
+const featuredPets = [
+  {
+    name: "Bat Dragon",
+    id: "bat-dragon-value"
+  },
+  {
+    name: "Shadow Dragon",
+    id: "shadow-dragon-value"
+  },
+  {
+    name: "Giraffe",
+    id: "giraffe-value"
+  },
+  {
+    name: "Frost Dragon",
+    id: "frost-dragon-value"
+  }
+];
 
-if (batDragon) {
-  document.getElementById("bat-dragon-value").textContent =
-    `Valor: ${batDragon.value}`;
-}
+featuredPets.forEach(featured => {
+  const pet = pets.find(p => p.name === featured.name);
+  const element = document.getElementById(featured.id);
+
+  if (pet && element) {
+    element.textContent = `Valor: ${pet.value}`;
+  }
+});
+
+
+// 🔎 BUSCADOR
+
 const searchInput = document.getElementById("pet-search");
 const searchResults = document.getElementById("search-results");
 
 searchInput.addEventListener("input", () => {
+
   const searchText = searchInput.value.toLowerCase().trim();
 
   if (searchText === "") {
@@ -23,7 +49,8 @@ searchInput.addEventListener("input", () => {
   );
 
   if (results.length === 0) {
-    searchResults.innerHTML = "<p>No encontramos esa mascota 🐾</p>";
+    searchResults.innerHTML =
+      "<p>No encontramos esa mascota 🐾</p>";
     return;
   }
 
