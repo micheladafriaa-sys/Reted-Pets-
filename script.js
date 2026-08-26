@@ -35,64 +35,39 @@ featuredPets.forEach(featured => {
 });
 
 
-// 💊 CALCULAR VALOR SEGÚN POCIÓN
+// 💊 VALOR DE POCIÓN
 
-function getPotionValue(pet, potion = "none") {
+function getPotionValue(value, potion, exception = false) {
 
-  const base = pet.value;
+  if (exception) {
 
-  // Pets donde las pociones disminuyen el valor
-  if (pet.potionException) {
+    if (potion === "R") return value - 1;
+    if (potion === "F") return value - 1;
+    if (potion === "FR") return value - 2;
 
-    if (potion === "R") {
-      return base - 1;
-    }
+  } else {
 
-    if (potion === "F") {
-      return base - 1;
-    }
+    if (potion === "R") return value + 1;
+    if (potion === "F") return value + 1.5;
+    if (potion === "FR") return value + 2.5;
 
-    if (potion === "FR") {
-      return base - 2;
-    }
-
-    return base;
   }
 
-
-  // Regla normal de RPTS
-
-  if (potion === "R") {
-    return base + 1;
-  }
-
-  if (potion === "F") {
-    return base + 1.5;
-  }
-
-  if (potion === "FR") {
-    return base + 2.5;
-  }
-
-  return base;
+  return value;
 }
 
 
-// ✨ CALCULAR NEON
+// ✨ NEON
 
-function getNeonValue(pet) {
-
-  return pet.value * 3.5;
-
+function getNeonValue(value) {
+  return value * 3.5;
 }
 
 
-// 🌈 CALCULAR MEGA NEON
+// 🌈 MEGA
 
-function getMegaValue(pet) {
-
-  return getNeonValue(pet) * 3.5;
-
+function getMegaValue(value) {
+  return value * 3.5;
 }
 
 
@@ -125,18 +100,55 @@ searchInput.addEventListener("input", () => {
   }
 
 
-  searchResults.innerHTML = results.map(pet => `
+  searchResults.innerHTML = results.map(pet => {
 
-    <div class="search-result">
+    const normal = pet.value;
 
-      <strong>${pet.name}</strong>
+    const neon = getNeonValue(normal);
 
-      <span>
-        Valor: ${pet.value}
-      </span>
+    const mega = getMegaValue(neon);
 
-    </div>
+    const r = getPotionValue(normal, "R", pet.potionException);
+    const f = getPotionValue(normal, "F", pet.potionException);
+    const fr = getPotionValue(normal, "FR", pet.potionException);
 
-  `).join("");
+    const neonR = getPotionValue(neon, "R", pet.potionException);
+    const neonF = getPotionValue(neon, "F", pet.potionException);
+    const neonFR = getPotionValue(neon, "FR", pet.potionException);
+
+    const megaR = getPotionValue(mega, "R", pet.potionException);
+    const megaF = getPotionValue(mega, "F", pet.potionException);
+    const megaFR = getPotionValue(mega, "FR", pet.potionException);
+
+
+    return `
+
+      <div class="search-result">
+
+        <h3>🐾 ${pet.name}</h3>
+
+        <p>💎 Normal: <strong>${normal}</strong></p>
+
+        <p>💊 R: <strong>${r}</strong></p>
+        <p>💊 F: <strong>${f}</strong></p>
+        <p>💊 FR: <strong>${fr}</strong></p>
+
+        <p>✨ Neon: <strong>${neon}</strong></p>
+
+        <p>✨ Neon R: <strong>${neonR}</strong></p>
+        <p>✨ Neon F: <strong>${neonF}</strong></p>
+        <p>✨ Neon FR: <strong>${neonFR}</strong></p>
+
+        <p>🌈 Mega Neon: <strong>${mega}</strong></p>
+
+        <p>🌈 Mega R: <strong>${megaR}</strong></p>
+        <p>🌈 Mega F: <strong>${megaF}</strong></p>
+        <p>🌈 Mega FR: <strong>${megaFR}</strong></p>
+
+      </div>
+
+    `;
+
+  }).join("");
 
 });
