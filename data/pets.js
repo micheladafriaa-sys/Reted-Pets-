@@ -41,5 +41,54 @@ const pets = [
     neon: true,
     mega: true,
     potionException: true
+    },
+
+  {
+    name: "Owl",
+    value: 246.5,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
+  },
+
+  {
+    name: "Panda Gigante",
+    value: 218.5,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
+  },
+
+  {
+    name: "Parrot",
+    value: 196,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
+  },
+
+  {
+    name: "Crow",
+    value: 175,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
+  },
+
+  {
+    name: "Flaming Lion",
+    value: 171,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
+  },
+
+  {
+    name: "Balloon Unicorn",
+    value: 165,
+    rarity: "Legendary",
+    demand: "high",
+    trend: "stable"
   }
 ];
+
