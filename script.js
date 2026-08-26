@@ -7,3 +7,30 @@ if (batDragon) {
   document.getElementById("bat-dragon-value").textContent =
     `Valor: ${batDragon.value}`;
 }
+const searchInput = document.getElementById("pet-search");
+const searchResults = document.getElementById("search-results");
+
+searchInput.addEventListener("input", () => {
+  const searchText = searchInput.value.toLowerCase().trim();
+
+  if (searchText === "") {
+    searchResults.innerHTML = "";
+    return;
+  }
+
+  const results = pets.filter(pet =>
+    pet.name.toLowerCase().includes(searchText)
+  );
+
+  if (results.length === 0) {
+    searchResults.innerHTML = "<p>No encontramos esa mascota 🐾</p>";
+    return;
+  }
+
+  searchResults.innerHTML = results.map(pet => `
+    <div class="search-result">
+      <strong>${pet.name}</strong>
+      <span>Valor: ${pet.value}</span>
+    </div>
+  `).join("");
+});
