@@ -1,5 +1,5 @@
 // RPTS — Rated Pets
-// Sistema de valores, variantes y buscador
+// Sistema de valores, variantes, imágenes y buscador
 
 
 // ⭐ PETS DESTACADAS
@@ -7,29 +7,41 @@
 const featuredPets = [
   {
     name: "Bat Dragon",
-    id: "bat-dragon-value"
+    id: "bat-dragon-value",
+    imageId: "bat-dragon-image"
   },
   {
     name: "Shadow Dragon",
-    id: "shadow-dragon-value"
+    id: "shadow-dragon-value",
+    imageId: "shadow-dragon-image"
   },
   {
     name: "Giraffe",
-    id: "giraffe-value"
+    id: "giraffe-value",
+    imageId: "giraffe-image"
   },
   {
     name: "Frost Dragon",
-    id: "frost-dragon-value"
+    id: "frost-dragon-value",
+    imageId: "frost-dragon-image"
   }
 ];
+
 
 featuredPets.forEach(featured => {
 
   const pet = pets.find(p => p.name === featured.name);
-  const element = document.getElementById(featured.id);
 
-  if (pet && element) {
-    element.textContent = `Valor: ${pet.value}`;
+  const valueElement = document.getElementById(featured.id);
+  const imageElement = document.getElementById(featured.imageId);
+
+  if (pet && valueElement) {
+    valueElement.textContent = `Valor: ${pet.value}`;
+  }
+
+  if (pet && imageElement && pet.image) {
+    imageElement.src = pet.image;
+    imageElement.alt = pet.name;
   }
 
 });
@@ -85,11 +97,9 @@ searchInput.addEventListener("input", () => {
     return;
   }
 
-
   const results = pets.filter(pet =>
     pet.name.toLowerCase().includes(searchText)
   );
-
 
   if (results.length === 0) {
 
@@ -98,7 +108,6 @@ searchInput.addEventListener("input", () => {
 
     return;
   }
-
 
   searchResults.innerHTML = results.map(pet => {
 
@@ -119,7 +128,6 @@ searchInput.addEventListener("input", () => {
     const megaR = getPotionValue(mega, "R", pet.potionException);
     const megaF = getPotionValue(mega, "F", pet.potionException);
     const megaFR = getPotionValue(mega, "FR", pet.potionException);
-
 
     return `
 
