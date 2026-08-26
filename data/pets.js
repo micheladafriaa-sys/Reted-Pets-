@@ -7,7 +7,8 @@ const pets = [
     trend: "stable",
     neon: true,
     mega: true,
-    potionException: true
+    potionException: true,
+image: ""
   },
 
   {
@@ -18,7 +19,8 @@ const pets = [
     trend: "stable",
     neon: true,
     mega: true,
-    potionException: true
+    potionException: true,
+image: ""
   },
 
   {
@@ -29,7 +31,8 @@ const pets = [
     trend: "stable",
     neon: true,
     mega: true,
-    potionException: true
+    potionException: true,
+image: ""
   },
 
   {
@@ -40,7 +43,8 @@ const pets = [
     trend: "stable",
     neon: true,
     mega: true,
-    potionException: true
+    potionException: true,
+image: ""
     },
 
   {
